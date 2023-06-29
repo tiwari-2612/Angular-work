@@ -1,0 +1,25 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>User Info Form</h1>
+    <form (ngSubmit)="onSubmit()" #emailtest="ngForm">
+
+      <div class="form-group">
+        <label for="email">Email </label>
+        <input type="text" class="form-control" id="email"
+               [(ngModel)]="email" name="email">
+
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!emailtest.form.valid">Submit</button>
+
+
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Email Id</div>
+      <div class="col-xs-9">{{ email }}</div>
+    </div>
+  </div>
+
+</div>
